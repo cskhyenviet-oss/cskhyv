@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Cup 2026 – Combo Yến Việt Sẵn Sàng Cho Fan Bóng</title>
+    <meta name="description" content="Xem Đá Đêm – Uống Yến Việt: Khỏe, Ngủ Ngon, Phục Hồi. Mua ngay 6 Combo Yến Việt với ưu đãi giảm 6-12% độc quyền mùa bóng đá thế giới.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FDB813; /* Gold/Energy */
+            --secondary: #E84C3D; /* Passion Red */
+            --dark-bg: #0B0E14; /* Deep Night Blue/Black */
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-main: #F4F4F5;
+            --text-muted: #A1A1AA;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(253, 184, 19, 0.05), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(232, 76, 61, 0.05), transparent 25%);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary), #FFD54F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #F57F17);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(253, 184, 19, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(253, 184, 19, 0.5);
+        }
+
+        /* Navbar */
+        nav {
+            padding: 20px 0;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(232, 76, 61, 0.2);
+            color: var(--secondary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(232, 76, 61, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            font-weight: 900;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* Combos Section */
+        .combos {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .combo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .combo-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .combo-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(253, 184, 19, 0.5);
+        }
+
+        .combo-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .combo-card:hover::before {
+            opacity: 1;
+        }
+
+        .combo-tag {
+            position: absolute;
+            top: 20px; right: 20px;
+            background: var(--secondary);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .combo-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .combo-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            min-height: 45px;
+        }
+
+        .combo-price {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .price-new {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .price-old {
+            font-size: 1.1rem;
+            color: #666;
+            text-decoration: line-through;
+        }
+
+        .combo-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .combo-features li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #E4E4E7;
+        }
+
+        .combo-features li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .combo-card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Flash Sale Banner */
+        .flash-sale-banner {
+            background: linear-gradient(90deg, #1A0000, #4A0000);
+            border: 1px solid #FF0000;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flash-sale-banner::after {
+            content: '⚽';
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.05;
+            right: -20px;
+            top: -40px;
+            transform: rotate(15deg);
+        }
+
+        .flash-content h3 {
+            font-size: 2rem;
+            color: #FF4444;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .flash-content p {
+            color: #FFAAAA;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 16px;
+        }
+
+        .time-box {
+            background: rgba(0,0,0,0.5);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 80px;
+            border: 1px solid rgba(255,0,0,0.3);
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .time-box small {
+            font-size: 0.75rem;
+            color: #FF8888;
+            text-transform: uppercase;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: rgba(0,0,0,0.3);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .feature-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-item p {
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 30px;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .legal {
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .flash-sale-banner { flex-direction: column; gap: 24px; text-align: center; }
+            .feature-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <div class="logo">YẾN VIỆT</div>
+            <a href="#combos" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;">Mua Ngay</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <span class="hero-badge">Ưu đãi mùa bóng đá thế giới 2026</span>
+            <h1>Xem Đá Đêm, <br><span class="text-gradient">Sức Khỏe Vững Vàng.</span></h1>
+            <p>Trải nghiệm mùa giải trọn vẹn với các Combo Yến Việt. Bổ sung năng lượng tức thì, phục hồi thể lực sau những trận cầu rực lửa. Tinh túy từ thiên nhiên dành cho người hâm mộ.</p>
+            <a href="#combos" class="btn btn-primary">Khám Phá Các Combo</a>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h4>Bổ Năng Lượng</h4>
+                    <p>Cung cấp axit amin thiết yếu, giúp bạn tỉnh táo và duy trì năng lượng suốt đêm dài.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌙</div>
+                    <h4>Ngủ Sâu Giấc</h4>
+                    <p>Hoạt chất Tryptophan giúp an thần, đem lại giấc ngủ ngon và sâu sau khi trận đấu kết thúc.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <h4>Phục Hồi Nhanh</h4>
+                    <p>Bồi bổ cơ thể toàn diện, đặc biệt tốt cho người lớn tuổi thức khuya xem bóng đá.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="combos" class="combos">
+        <div class="container">
+            
+            <div class="flash-sale-banner">
+                <div class="flash-content">
+                    <h3>⚡ Night Match Flash Sale</h3>
+                    <p>Giảm thêm 10% cho mọi đơn hàng khung giờ 23:00 - 02:00</p>
+                </div>
+                <div class="countdown">
+                    <div class="time-box"><span>02</span><small>Giờ</small></div>
+                    <div class="time-box"><span>45</span><small>Phút</small></div>
+                    <div class="time-box"><span>12</span><small>Giây</small></div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2>Lựa Chọn Của <span class="text-gradient">Người Hâm Mộ</span></h2>
+                <p style="color: var(--text-muted);">Các bộ combo được thiết kế riêng, giảm từ 6-12%.</p>
+            </div>
+
+            <div class="combo-grid">
+                <!-- Combo 1 -->
+                <div class="combo-card">
+                    <div class="combo-tag">Best Seller</div>
+                    <h3>Combo Xem Bóng Khỏe</h3>
+                    <p class="combo-desc">Lựa chọn hàng đầu cho các fan bóng đá nam. Khỏe đến trân cuối cùng.</p>
+                    <div class="combo-price">
+                        <span class="price-new">480.000₫</span>
+                        <span class="price-old">513.600₫</span>
+                    </div>
+                    <ul class="combo-features">
+                        <li>12 lọ nước yến 70ml</li>
+                        <li>6 lọ Hương Sen + 6 lọ Không Đường</li>
+                        <li>Phù hợp: Nam 25-45 tuổi</li>
+                        <li>Giảm 7% so với mua lẻ</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Mua Ngay - Khỏe Đến Trận Cuối</a>
+                </div>
+
+                <!-- Combo 2 -->
+                <div class="combo-card">
+                    <h3>Combo Gia Đình</h3>
+                    <p class="combo-desc">Giải pháp bồi bổ toàn diện cho cả nhà, đặc biệt người lớn tuổi.</p>
+                    <div class="combo-price">
+                        <span class="price-new">350.000₫</span>
+                        <span class="price-old">380.000₫</span>
+                    </div>
+                    <ul class="combo-features">
+                        <li>6 lọ nước yến Hương Sen</li>
+                        <li>3 hộp cháo yến Nest Grow</li>
+                        <li>Phù hợp: Gia đình, người lớn tuổi</li>
+                        <li>Giảm 8% so với mua lẻ</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Bồi Bổ Bố Mẹ</a>
+                </div>
+
+                <!-- Combo 3 -->
+                <div class="combo-card">
+                    <div class="combo-tag">Premium</div>
+                    <h3>Combo Quà Tặng Đối Tác</h3>
+                    <p class="combo-desc">Thể hiện sự trân trọng với đối tác bằng món quà sức khỏe tinh túy.</p>
+                    <div class="combo-price">
+                        <span class="price-new">650.000₫</span>
+                        <span class="price-old">720.000₫</span>
+                    </div>
+                    <ul class="combo-features">
+                        <li>12 lọ yến Hương Sen cao cấp</li>
+                        <li>Tặng kèm giỏ quà & thiệp chúc mừng</li>
+                        <li>Phù hợp: Quà tặng Doanh nghiệp</li>
+                        <li>Giảm 10% so với mua lẻ</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Tặng Quà Ý Nghĩa</a>
+                </div>
+
+                 <!-- Combo 4 -->
+                 <div class="combo-card">
+                    <h3>Combo Nạp Năng Lượng</h3>
+                    <p class="combo-desc">Sự kết hợp hoàn hảo giữa Yến và Đông Trùng Hạ Thảo.</p>
+                    <div class="combo-price">
+                        <span class="price-new">550.000₫</span>
+                        <span class="price-old">600.000₫</span>
+                    </div>
+                    <ul class="combo-features">
+                        <li>6 lọ nước yến 70ml</li>
+                        <li>3 hộp Đông Trùng Chưng 70ml</li>
+                        <li>Phù hợp: Chăm sóc sức khỏe chủ động</li>
+                        <li>Giảm 8% so với mua lẻ</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Chăm Sóc Chủ Động</a>
+                </div>
+
+                <!-- Combo 5 -->
+                <div class="combo-card">
+                    <div class="combo-tag" style="background: #D4AF37;">VIP</div>
+                    <h3>VIP Gift Set</h3>
+                    <p class="combo-desc">Đẳng cấp quà tặng, hội tụ trọn vẹn sự tinh túy nhất của Yến Việt.</p>
+                    <div class="combo-price">
+                        <span class="price-new">1.200.000₫</span>
+                        <span class="price-old">1.360.000₫</span>
+                    </div>
+                    <ul class="combo-features">
+                        <li>24 lọ yến (12 Sen + 12 Không Đường)</li>
+                        <li>Hộp quà gỗ sang trọng + Túi vải cao cấp</li>
+                        <li>Phù hợp: Khách hàng VIP, Quà tặng lớn</li>
+                        <li>Giảm 12% so với mua lẻ</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Đặt Quà VIP Ngay</a>
+                </div>
+
+                 <!-- Combo 6 -->
+                 <div class="combo-card">
+                    <h3>Combo Xem Đá Đủ Vị</h3>
+                    <p class="combo-desc">Trải nghiệm đa dạng hương vị, thưởng thức không nhàm chán.</p>
+                    <div class="combo-price">
+                        <span class="price-new">720.000₫</span>
+                        <span class="price-old">770.400₫</span>
+                    </div>
+                    <ul class="combo-features">
+                        <li>18 lọ mix 6 vị độc đáo</li>
+                        <li>Sen, Không Đường, Đông Trùng, Sâm...</li>
+                        <li>Phù hợp: Fan thích sự đa dạng</li>
+                        <li>Giảm 6% so với mua lẻ</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Đủ Vị - Đủ Khỏe</a>
+                </div>
+
+                <!-- Combo 7: Mới -->
+                <div class="combo-card">
+                    <div class="combo-tag" style="background: #27ae60;">Tiêu Hóa Tốt</div>
+                    <h3>Combo Bụng Khỏe Thức Khuya</h3>
+                    <p class="combo-desc">Sự kết hợp hoàn hảo giữa Nước Yến Sâm Tỉnh Táo và Cháo Yến YenViet Dễ Tiêu Hóa.</p>
+                    <div class="combo-price">
+                        <span class="price-new">450.000₫</span>
+                        <span class="price-old">489.000₫</span>
+                    </div>
+                    <ul class="combo-features">
+                        <li>6 lọ Nước Yến Sâm cao cấp</li>
+                        <li>3 hộp Cháo Yến YenViet</li>
+                        <li>Phù hợp: Đói bụng ban đêm, cần tỉnh táo</li>
+                        <li>Giảm 8% so với mua lẻ</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Bụng Khỏe - Đêm Vui</a>
+                </div>
+
+                <!-- Combo 8: Mới -->
+                <div class="combo-card">
+                    <div class="combo-tag" style="background: #8e44ad;">Phục Hồi</div>
+                    <h3>Combo Hồi Phục Thần Tốc</h3>
+                    <p class="combo-desc">Phục hồi hệ vi sinh đường ruột và nạp năng lượng cực mạnh cho ngày mới.</p>
+                    <div class="combo-price">
+                        <span class="price-new">680.000₫</span>
+                        <span class="price-old">755.000₫</span>
+                    </div>
+                    <ul class="combo-features">
+                        <li>6 lọ Nước Yến Đông Trùng Hạ Thảo</li>
+                        <li>6 hộp Cháo Yến Sâm Đông Trùng</li>
+                        <li>Phù hợp: Dân văn phòng, người lớn tuổi</li>
+                        <li>Giảm 10% so với mua lẻ</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Hồi Phục Thần Tốc</a>
+                </div>
+
+                <!-- Combo 9: Cà phê muối -->
+                <div class="combo-card">
+                    <div class="combo-tag" style="background: #e67e22;">Thức Trọn</div>
+                    <h3>Combo Thức Trọn Mùa Bóng</h3>
+                    <p class="combo-desc">Sự kết hợp độc đáo: Cà phê muối tỉnh táo tức thì, yến sào không đường bồi bổ sức khỏe.</p>
+                    <div class="combo-price">
+                        <span class="price-new">299.000₫</span>
+                        <span class="price-old">330.000₫</span>
+                    </div>
+                    <ul class="combo-features">
+                        <li>2 hộp Cà Phê Muối Yến Việt (Mix vị)</li>
+                        <li>6 lọ Nước Yến Không Đường</li>
+                        <li>Phù hợp: "Cú đêm" cần năng lượng tức thì</li>
+                        <li>Giảm 9% so với mua lẻ</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Tỉnh Táo Tức Thì</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">YẾN VIỆT</div>
+            <p style="color: var(--text-muted);">Sản phẩm chất lượng từ Công ty Cổ phần Yến Việt.</p>
+            <p class="legal">*Chiến dịch ưu đãi diễn ra từ 12/06/2026 đến 20/07/2026. Chương trình có thể kết thúc sớm nếu hết số lượng ưu đãi. Không áp dụng đồng thời cùng các chương trình khuyến mãi khác.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
