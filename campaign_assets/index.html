@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Cup 2026 – Combo Yến Việt Sẵn Sàng Cho Fan Bóng</title>
-    <meta name="description" content="Xem Đá Đêm – Uống Yến Việt: Khỏe, Ngủ Ngon, Phục Hồi. Mua ngay 6 Combo Yến Việt với ưu đãi giảm 6-12% độc quyền mùa bóng đá thế giới.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Yến Việt x World Cup 2026 - Đánh Thức Năng Lượng</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #FDB813; /* Gold/Energy */
-            --secondary: #E84C3D; /* Passion Red */
-            --dark-bg: #0B0E14; /* Deep Night Blue/Black */
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --text-main: #F4F4F5;
-            --text-muted: #A1A1AA;
+            --color-bg-dark: #0a0a0f; /* Đen tuyền hiện đại làm nền */
+            --color-bg-panel: rgba(20, 20, 30, 0.7); /* Panel tối mờ */
+            --color-gold: #FFD700; /* Vàng Cup / Yến Việt */
+            --color-gold-glow: rgba(255, 215, 0, 0.4);
+            --color-neon-green: #00FF66; /* Xanh lá sân cỏ Neon */
+            --color-neon-purple: #9D00FF; /* Tím nhịp điệu WC 2026 */
+            --color-neon-cyan: #00F0FF; /* Xanh dương tốc độ */
+            --text-light: #FFFFFF;
+            --text-dim: #A1A1AA;
             --glass-border: rgba(255, 255, 255, 0.1);
         }
 
@@ -24,601 +26,600 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            line-height: 1.6;
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(253, 184, 19, 0.05), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(232, 76, 61, 0.05), transparent 25%);
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--color-bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            position: relative;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Outfit', sans-serif;
+        /* Stadium Light Effects & WC Colors */
+        .stadium-light {
+            position: absolute;
+            top: -20%;
+            width: 20vw;
+            height: 150vh;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+            transform: rotate(35deg);
+            z-index: -1;
+            pointer-events: none;
+            filter: blur(40px);
+        }
+        .light-left { left: -10%; transform: rotate(35deg); }
+        .light-right { right: -10%; transform: rotate(-35deg); }
+        
+        .glow-purple {
+            position: absolute; top: 5%; right: 5%; width: 450px; height: 450px;
+            background: var(--color-neon-purple); filter: blur(180px); z-index: -2; border-radius: 50%; opacity: 0.6;
+        }
+        .glow-cyan {
+            position: absolute; bottom: 10%; left: -5%; width: 550px; height: 550px;
+            background: var(--color-neon-cyan); filter: blur(180px); z-index: -2; border-radius: 50%; opacity: 0.4;
+        }
+        .glow-green {
+            position: absolute; top: 40%; left: 30%; width: 600px; height: 600px;
+            background: var(--color-neon-green); filter: blur(200px); z-index: -2; border-radius: 50%; opacity: 0.2;
         }
 
-        /* Utility Classes */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        h1, h2, h3, h4, .font-heading { font-family: 'Montserrat', sans-serif; }
 
-        .text-gradient {
-            background: linear-gradient(135deg, var(--primary), #FFD54F);
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* Typography */
+        .text-gradient-gold {
+            background: linear-gradient(90deg, #FFE066, #FFC300, #F48C06);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        /* Buttons */
         .btn {
             display: inline-block;
-            padding: 14px 28px;
-            border-radius: 50px;
-            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: pointer;
             border: none;
-            font-family: 'Outfit', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            text-align: center;
         }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), #F57F17);
-            color: #000;
-            box-shadow: 0 4px 15px rgba(253, 184, 19, 0.3);
+        .btn-gold {
+            background: linear-gradient(135deg, var(--color-gold), #F48C06);
+            color: #111;
+            box-shadow: 0 4px 15px var(--color-gold-glow);
         }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(253, 184, 19, 0.5);
-        }
-
-        /* Navbar */
-        nav {
-            padding: 20px 0;
-            position: absolute;
-            width: 100%;
-            z-index: 100;
-        }
-
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 900;
-            color: #fff;
-            letter-spacing: 2px;
+        .btn-gold:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px var(--color-gold-glow);
         }
 
         /* Hero Section */
         .hero {
-            padding: 160px 0 100px;
+            padding: 100px 0 80px;
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
-            z-index: -1;
-            opacity: 0.5;
+        .hero-logo {
+            font-size: 2.5rem; font-weight: 900; letter-spacing: 3px; color: #fff; margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255,255,255,0.3);
         }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(232, 76, 61, 0.2);
-            color: var(--secondary);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 24px;
-            border: 1px solid rgba(232, 76, 61, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            font-weight: 900;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-
-        /* Combos Section */
-        .combos {
-            padding: 80px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 16px;
-        }
-
-        .combo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .combo-card {
-            background: var(--card-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 30px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .combo-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(253, 184, 19, 0.5);
-        }
-
-        .combo-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .combo-card:hover::before {
-            opacity: 1;
-        }
-
-        .combo-tag {
-            position: absolute;
-            top: 20px; right: 20px;
-            background: var(--secondary);
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        .combo-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 12px;
-            color: #fff;
-        }
-
-        .combo-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 24px;
-            min-height: 45px;
-        }
-
-        .combo-price {
-            display: flex;
-            align-items: baseline;
-            gap: 12px;
-            margin-bottom: 24px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .price-new {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .price-old {
-            font-size: 1.1rem;
-            color: #666;
-            text-decoration: line-through;
-        }
-
-        .combo-features {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .combo-features li {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.95rem;
-            color: #E4E4E7;
-        }
-
-        .combo-features li::before {
-            content: '✓';
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        .combo-card .btn {
-            width: 100%;
-            text-align: center;
-        }
+        .hero h1 { font-size: 4.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-transform: uppercase;}
+        .hero p { font-size: 1.2rem; color: var(--text-dim); max-width: 700px; margin: 0 auto 40px; }
 
         /* Flash Sale Banner */
-        .flash-sale-banner {
-            background: linear-gradient(90deg, #1A0000, #4A0000);
-            border: 1px solid #FF0000;
+        .flash-sale {
+            background: linear-gradient(90deg, rgba(157, 0, 255, 0.8), rgba(0, 240, 255, 0.8));
+            border: 2px solid var(--color-neon-cyan);
             border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 60px;
+            padding: 30px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.1);
+            margin-bottom: 80px;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+            backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
         }
-
-        .flash-sale-banner::after {
-            content: '⚽';
-            position: absolute;
-            font-size: 150px;
-            opacity: 0.05;
-            right: -20px;
-            top: -40px;
-            transform: rotate(15deg);
+        .flash-sale::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 3s infinite;
         }
-
-        .flash-content h3 {
-            font-size: 2rem;
-            color: #FF4444;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        @keyframes shine { 100% { left: 200%; } }
         
-        .flash-content p {
-            color: #FFAAAA;
-        }
-
-        .countdown {
-            display: flex;
-            gap: 16px;
-        }
-
+        .flash-info h2 { font-size: 2rem; color: #fff; display: flex; align-items: center; gap: 10px; margin-bottom: 5px;}
+        .flash-info p { font-size: 1.1rem; color: #FFDADA; }
+        
+        .timer { display: flex; gap: 15px; }
         .time-box {
-            background: rgba(0,0,0,0.5);
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-align: center;
-            min-width: 80px;
-            border: 1px solid rgba(255,0,0,0.3);
+            background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 15px; border-radius: 8px; text-align: center; min-width: 80px;
         }
+        .time-box span { display: block; font-size: 2rem; font-weight: 900; font-family: 'Montserrat', sans-serif; color: var(--color-gold); }
+        .time-box small { font-size: 0.8rem; text-transform: uppercase; color: #fff; }
 
-        .time-box span {
-            display: block;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #fff;
-            font-family: 'Outfit', sans-serif;
+        /* Match Schedule */
+        .schedule-section { margin-bottom: 80px; }
+        .match-scroll {
+            display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px;
+            scrollbar-width: thin; scrollbar-color: var(--color-neon-cyan) rgba(255,255,255,0.1);
         }
-
-        .time-box small {
-            font-size: 0.75rem;
-            color: #FF8888;
-            text-transform: uppercase;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: rgba(0,0,0,0.3);
-            border-top: 1px solid var(--glass-border);
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            text-align: center;
-        }
-
-        .feature-item h4 {
-            font-size: 1.5rem;
-            margin-bottom: 16px;
-            color: #fff;
-        }
+        .match-scroll::-webkit-scrollbar { height: 8px; }
+        .match-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
+        .match-scroll::-webkit-scrollbar-thumb { background: var(--color-neon-cyan); border-radius: 10px; }
         
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+        .match-card {
+            background: rgba(10, 10, 15, 0.8);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 12px; min-width: 300px; padding: 25px 20px;
+            position: relative; backdrop-filter: blur(5px); transition: border-color 0.3s;
+            flex-shrink: 0;
+        }
+        .match-card:hover { border-color: var(--color-neon-cyan); box-shadow: 0 0 15px rgba(0,240,255,0.2); }
+        .match-time {
+            font-size: 0.9rem; color: var(--color-gold); font-weight: 700; margin-bottom: 20px; text-align: center; font-family: 'Montserrat', sans-serif;
+        }
+        .match-teams { display: flex; justify-content: space-between; align-items: center; }
+        .team { text-align: center; flex: 1; }
+        .team-flag { font-size: 2.5rem; margin-bottom: 8px; line-height: 1;}
+        .team-name { font-size: 1rem; font-weight: 700; color: #fff; text-transform: uppercase; }
+        .vs { font-size: 1.5rem; color: var(--text-dim); font-weight: 900; font-family: 'Montserrat', sans-serif; padding: 0 10px; }
+        .live-badge {
+            position: absolute; top: -12px; right: 20px; background: #D90429; color: white;
+            font-size: 0.75rem; padding: 6px 12px; border-radius: 20px; font-weight: bold; animation: pulse 1.5s infinite; letter-spacing: 1px;
+        }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); box-shadow: 0 0 10px rgba(217,4,65,0.8); } 100% { transform: scale(1); } }
+
+        /* Trust Badges */
+        .trust-section { display: flex; justify-content: center; gap: 40px; margin-bottom: 80px; flex-wrap: wrap; }
+        .trust-item { text-align: center; max-width: 200px; }
+        .trust-icon { font-size: 2.5rem; margin-bottom: 15px; background: var(--color-bg-panel); width: 80px; height: 80px; line-height: 80px; border-radius: 50%; border: 1px solid var(--glass-border); display: inline-block;}
+        .trust-item h4 { color: var(--color-gold); margin-bottom: 8px; }
+        .trust-item p { font-size: 0.9rem; color: var(--text-dim); }
+
+        /* Combo Grid */
+        .section-title { text-align: center; font-size: 3rem; margin-bottom: 50px; text-transform: uppercase; }
+        .combo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
         }
 
-        .feature-item p {
-            color: var(--text-muted);
+        /* The Card */
+        .card {
+            background: var(--color-bg-panel);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
         }
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-gold);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px var(--color-gold-glow);
+        }
+
+        /* Image Placeholder Area */
+        .card-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 250px; /* Fixed height for image area */
+            background-color: #111;
+            overflow: hidden;
+        }
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers the area beautifully */
+            transition: transform 0.5s ease;
+        }
+        .card:hover .card-img { transform: scale(1.1); }
+        
+        .badge {
+            position: absolute; top: 15px; right: 15px;
+            padding: 6px 15px; border-radius: 30px;
+            font-size: 0.8rem; font-weight: 800; font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .badge-red { background: var(--color-red); color: white; }
+        .badge-gold { background: var(--color-gold); color: black; }
+        .badge-green { background: #27ae60; color: white; }
+        .badge-purple { background: #8e44ad; color: white; }
+
+        .card-body { padding: 30px 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-title { font-size: 1.6rem; color: #fff; margin-bottom: 10px; line-height: 1.3;}
+        .card-desc { font-size: 0.95rem; color: var(--text-dim); margin-bottom: 20px; flex-grow: 1; }
+
+        .price-box {
+            background: rgba(0,0,0,0.3); border-radius: 12px; padding: 15px; margin-bottom: 20px;
+            border-left: 4px solid var(--color-gold); display: flex; align-items: baseline; gap: 15px;
+        }
+        .price-new { font-size: 1.8rem; font-weight: 900; color: var(--color-gold); font-family: 'Montserrat', sans-serif; }
+        .price-old { font-size: 1.1rem; color: #6c757d; text-decoration: line-through; }
+
+        .feature-list { list-style: none; margin-bottom: 25px; }
+        .feature-list li { margin-bottom: 8px; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; color: #E9ECEF;}
+        .feature-list li::before { content: '⚽'; font-size: 0.8rem; }
+
+        .card-btn { width: 100%; padding: 15px; font-size: 1.1rem; }
 
         /* Footer */
-        footer {
-            padding: 60px 0 30px;
-            text-align: center;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .footer-logo {
-            font-size: 24px;
-            font-weight: 900;
-            color: #fff;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
-        .legal {
-            color: #666;
-            font-size: 0.85rem;
-            margin-top: 40px;
-        }
+        footer { border-top: 1px solid var(--glass-border); padding: 50px 0; text-align: center; margin-top: 100px; background: rgba(0,0,0,0.5); }
+        .footer-logo { font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 15px; }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .flash-sale-banner { flex-direction: column; gap: 24px; text-align: center; }
-            .feature-grid { grid-template-columns: 1fr; }
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 3rem; }
+            .flash-sale { flex-direction: column; text-align: center; gap: 20px; }
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.2rem; }
+            .combo-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="container">
-            <div class="logo">YẾN VIỆT</div>
-            <a href="#combos" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;">Mua Ngay</a>
-        </div>
-    </nav>
+    <!-- Background Effects -->
+    <div class="stadium-light light-left"></div>
+    <div class="stadium-light light-right"></div>
+    <div class="glow-purple"></div>
+    <div class="glow-cyan"></div>
+    <div class="glow-green"></div>
 
-    <header class="hero">
-        <div class="container">
-            <span class="hero-badge">Ưu đãi mùa bóng đá thế giới 2026</span>
-            <h1>Xem Đá Đêm, <br><span class="text-gradient">Sức Khỏe Vững Vàng.</span></h1>
-            <p>Trải nghiệm mùa giải trọn vẹn với các Combo Yến Việt. Bổ sung năng lượng tức thì, phục hồi thể lực sau những trận cầu rực lửa. Tinh túy từ thiên nhiên dành cho người hâm mộ.</p>
-            <a href="#combos" class="btn btn-primary">Khám Phá Các Combo</a>
-        </div>
-    </header>
+    <div class="container">
+        
+        <!-- Hero -->
+        <header class="hero">
+            <div class="hero-logo">YẾN VIỆT</div>
+            <h1>Đánh Thức Năng Lượng<br><span class="text-gradient-gold">Bùng Nổ Cùng World Cup</span></h1>
+            <p>Tuyển thủ cháy hết mình trên sân cỏ, người hâm mộ cũng cần sức khỏe vô địch. Yến Việt mang đến giải pháp bồi bổ thượng hạng, tiếp lửa đam mê cho những đêm thức trắng.</p>
+            <a href="#combos" class="btn btn-gold" style="font-size: 1.2rem; padding: 15px 40px;">Săn Ưu Đãi Ngay</a>
+        </header>
 
-    <section class="features">
-        <div class="container">
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">⚡</div>
-                    <h4>Bổ Năng Lượng</h4>
-                    <p>Cung cấp axit amin thiết yếu, giúp bạn tỉnh táo và duy trì năng lượng suốt đêm dài.</p>
+        <!-- Trust Features -->
+        <div class="trust-section">
+            <div class="trust-item">
+                <div class="trust-icon">⚡</div>
+                <h4>Tỉnh Táo Tức Thì</h4>
+                <p>Năng lượng mạnh mẽ từ Hồng Sâm & Cà phê muối.</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🛡️</div>
+                <h4>Bụng Khỏe, Dễ Tiêu</h4>
+                <p>Cháo Yến thanh nhẹ, ăn khuya không lo đầy bụng.</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🌿</div>
+                <h4>Phục Hồi Sâu</h4>
+                <p>Yến Sào nguyên chất giúp tái tạo tế bào, ngủ ngon.</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🚚</div>
+                <h4>Giao Hỏa Tốc</h4>
+                <p>Ship nhanh chóng, sẵn sàng cho trận cầu kế tiếp.</p>
+            </div>
+        </div>
+
+        <!-- Flash Sale -->
+        <div class="flash-sale">
+            <div class="flash-info">
+                <h2>⚡ Khung Giờ Xem Bóng</h2>
+                <p>Giảm thêm 10% & Miễn phí vận chuyển từ 23:00 - 02:00</p>
+            </div>
+            <div class="timer" id="countdown">
+                <div class="time-box"><span id="hours">02</span><small>Giờ</small></div>
+                <div class="time-box"><span id="minutes">45</span><small>Phút</small></div>
+                <div class="time-box"><span id="seconds">00</span><small>Giây</small></div>
+            </div>
+        </div>
+
+        <!-- Match Schedule -->
+        <div class="schedule-section">
+            <h2 class="section-title" style="font-size: 2.2rem; margin-bottom: 40px;">Lịch Thi Đấu <span class="text-gradient-gold">Tâm Điểm Tuần Này</span></h2>
+            <div class="match-scroll">
+                <div class="match-card">
+                    <div class="live-badge">TÂM ĐIỂM ĐÊM NAY</div>
+                    <div class="match-time">22/06/2026 - 02:00 SA</div>
+                    <div class="match-teams">
+                        <div class="team"><div class="team-flag">🇧🇷</div><div class="team-name">Brazil</div></div>
+                        <div class="vs">VS</div>
+                        <div class="team"><div class="team-flag">🇫🇷</div><div class="team-name">Pháp</div></div>
+                    </div>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🌙</div>
-                    <h4>Ngủ Sâu Giấc</h4>
-                    <p>Hoạt chất Tryptophan giúp an thần, đem lại giấc ngủ ngon và sâu sau khi trận đấu kết thúc.</p>
+                <div class="match-card">
+                    <div class="match-time">23/06/2026 - 23:00 CH</div>
+                    <div class="match-teams">
+                        <div class="team"><div class="team-flag">🇦🇷</div><div class="team-name">Argentina</div></div>
+                        <div class="vs">VS</div>
+                        <div class="team"><div class="team-flag">🇪🇸</div><div class="team-name">Tây Ban Nha</div></div>
+                    </div>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🛡️</div>
-                    <h4>Phục Hồi Nhanh</h4>
-                    <p>Bồi bổ cơ thể toàn diện, đặc biệt tốt cho người lớn tuổi thức khuya xem bóng đá.</p>
+                <div class="match-card">
+                    <div class="match-time">24/06/2026 - 02:00 SA</div>
+                    <div class="match-teams">
+                        <div class="team"><div class="team-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div><div class="team-name">Anh</div></div>
+                        <div class="vs">VS</div>
+                        <div class="team"><div class="team-flag">🇺🇸</div><div class="team-name">Mỹ</div></div>
+                    </div>
+                </div>
+                <div class="match-card">
+                    <div class="match-time">25/06/2026 - 05:00 SA</div>
+                    <div class="match-teams">
+                        <div class="team"><div class="team-flag">🇩🇪</div><div class="team-name">Đức</div></div>
+                        <div class="vs">VS</div>
+                        <div class="team"><div class="team-flag">🇯🇵</div><div class="team-name">Nhật Bản</div></div>
+                    </div>
+                </div>
+                <div class="match-card">
+                    <div class="match-time">26/06/2026 - 23:00 CH</div>
+                    <div class="match-teams">
+                        <div class="team"><div class="team-flag">🇵🇹</div><div class="team-name">Bồ Đào Nha</div></div>
+                        <div class="vs">VS</div>
+                        <div class="team"><div class="team-flag">🇮🇹</div><div class="team-name">Ý</div></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section id="combos" class="combos">
-        <div class="container">
-            
-            <div class="flash-sale-banner">
-                <div class="flash-content">
-                    <h3>⚡ Night Match Flash Sale</h3>
-                    <p>Giảm thêm 10% cho mọi đơn hàng khung giờ 23:00 - 02:00</p>
+        <!-- Combos -->
+        <h2 id="combos" class="section-title">Đội Hình <span class="text-gradient-gold">Combo Đỉnh Cao</span></h2>
+        
+        <div class="combo-grid">
+
+            <!-- Combo 1 -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="badge badge-red">Best Seller</span>
+                    <!-- Thay link src bằng URL ảnh thật từ Shopee của Combo Xem Bóng Khỏe -->
+                    <img src="https://placehold.co/600x400/1e293b/facc15?text=Ảnh+Combo+Xem+Bóng+Khỏe" alt="Combo Xem Bóng Khỏe" class="card-img">
                 </div>
-                <div class="countdown">
-                    <div class="time-box"><span>02</span><small>Giờ</small></div>
-                    <div class="time-box"><span>45</span><small>Phút</small></div>
-                    <div class="time-box"><span>12</span><small>Giây</small></div>
-                </div>
-            </div>
-
-            <div class="section-header">
-                <h2>Lựa Chọn Của <span class="text-gradient">Người Hâm Mộ</span></h2>
-                <p style="color: var(--text-muted);">Các bộ combo được thiết kế riêng, giảm từ 6-12%.</p>
-            </div>
-
-            <div class="combo-grid">
-                <!-- Combo 1 -->
-                <div class="combo-card">
-                    <div class="combo-tag">Best Seller</div>
-                    <h3>Combo Xem Bóng Khỏe</h3>
-                    <p class="combo-desc">Lựa chọn hàng đầu cho các fan bóng đá nam. Khỏe đến trân cuối cùng.</p>
-                    <div class="combo-price">
+                <div class="card-body">
+                    <h3 class="card-title">Xem Bóng Khỏe</h3>
+                    <p class="card-desc">Lựa chọn số 1 cho phái mạnh. Cung cấp axit amin, duy trì thể lực sắc bén đến phút 90+.</p>
+                    <div class="price-box">
                         <span class="price-new">480.000₫</span>
                         <span class="price-old">513.600₫</span>
                     </div>
-                    <ul class="combo-features">
-                        <li>12 lọ nước yến 70ml</li>
-                        <li>6 lọ Hương Sen + 6 lọ Không Đường</li>
-                        <li>Phù hợp: Nam 25-45 tuổi</li>
-                        <li>Giảm 7% so với mua lẻ</li>
+                    <ul class="feature-list">
+                        <li>12 lọ Nước Yến (6 Sen + 6 KĐ)</li>
+                        <li>Bổ sung năng lượng tức thì</li>
+                        <li>Tiết kiệm 7%</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Mua Ngay - Khỏe Đến Trận Cuối</a>
+                    <a href="https://shopee.vn/yenviet" target="_blank" class="btn btn-gold card-btn">Mua Ngay</a>
                 </div>
+            </div>
 
-                <!-- Combo 2 -->
-                <div class="combo-card">
-                    <h3>Combo Gia Đình</h3>
-                    <p class="combo-desc">Giải pháp bồi bổ toàn diện cho cả nhà, đặc biệt người lớn tuổi.</p>
-                    <div class="combo-price">
+            <!-- Combo 2 -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <!-- Thay link src bằng URL ảnh thật -->
+                    <img src="https://placehold.co/600x400/1e293b/facc15?text=Ảnh+Combo+Gia+Đình" alt="Combo Gia Đình" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Gia Đình Mùa Bóng</h3>
+                    <p class="card-desc">Bồi bổ bố mẹ sau đêm thức xem bóng, giúp an thần ngủ sâu với yến chưng và cháo.</p>
+                    <div class="price-box">
                         <span class="price-new">350.000₫</span>
                         <span class="price-old">380.000₫</span>
                     </div>
-                    <ul class="combo-features">
-                        <li>6 lọ nước yến Hương Sen</li>
-                        <li>3 hộp cháo yến Nest Grow</li>
-                        <li>Phù hợp: Gia đình, người lớn tuổi</li>
-                        <li>Giảm 8% so với mua lẻ</li>
+                    <ul class="feature-list">
+                        <li>6 lọ Yến Hương Sen + 3 hộp Cháo Yến</li>
+                        <li>Phù hợp cho người lớn tuổi</li>
+                        <li>Tiết kiệm 8%</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Bồi Bổ Bố Mẹ</a>
+                    <a href="https://shopee.vn/yenviet" target="_blank" class="btn btn-gold card-btn">Mua Ngay</a>
                 </div>
+            </div>
 
-                <!-- Combo 3 -->
-                <div class="combo-card">
-                    <div class="combo-tag">Premium</div>
-                    <h3>Combo Quà Tặng Đối Tác</h3>
-                    <p class="combo-desc">Thể hiện sự trân trọng với đối tác bằng món quà sức khỏe tinh túy.</p>
-                    <div class="combo-price">
+            <!-- Combo 3 -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="badge badge-gold">VIP Gift</span>
+                    <!-- Thay link src bằng URL ảnh thật -->
+                    <img src="https://placehold.co/600x400/1e293b/facc15?text=Ảnh+Hộp+Quà+Tặng" alt="Combo Quà Đối Tác" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Quà Tặng Đối Tác</h3>
+                    <p class="card-desc">Thể hiện đẳng cấp và sự quan tâm tinh tế với đối tác kinh doanh trong mùa lễ hội thể thao.</p>
+                    <div class="price-box">
                         <span class="price-new">650.000₫</span>
                         <span class="price-old">720.000₫</span>
                     </div>
-                    <ul class="combo-features">
-                        <li>12 lọ yến Hương Sen cao cấp</li>
-                        <li>Tặng kèm giỏ quà & thiệp chúc mừng</li>
-                        <li>Phù hợp: Quà tặng Doanh nghiệp</li>
-                        <li>Giảm 10% so với mua lẻ</li>
+                    <ul class="feature-list">
+                        <li>12 lọ Yến Hương Sen cao cấp</li>
+                        <li>Kèm giỏ quà & thiệp VIP</li>
+                        <li>Tiết kiệm 10%</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Tặng Quà Ý Nghĩa</a>
+                    <a href="https://shopee.vn/yenviet" target="_blank" class="btn btn-gold card-btn">Đặt Quà Ngay</a>
                 </div>
+            </div>
 
-                 <!-- Combo 4 -->
-                 <div class="combo-card">
-                    <h3>Combo Nạp Năng Lượng</h3>
-                    <p class="combo-desc">Sự kết hợp hoàn hảo giữa Yến và Đông Trùng Hạ Thảo.</p>
-                    <div class="combo-price">
+            <!-- Combo 4 -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <!-- Thay link src bằng URL ảnh thật -->
+                    <img src="https://placehold.co/600x400/1e293b/facc15?text=Ảnh+Nước+Yến+Đông+Trùng" alt="Nạp Năng Lượng" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Nạp Năng Lượng</h3>
+                    <p class="card-desc">Tăng cường sức đề kháng mạnh mẽ nhờ sự kết hợp giữa Yến Sào và Đông Trùng Hạ Thảo.</p>
+                    <div class="price-box">
                         <span class="price-new">550.000₫</span>
                         <span class="price-old">600.000₫</span>
                     </div>
-                    <ul class="combo-features">
-                        <li>6 lọ nước yến 70ml</li>
-                        <li>3 hộp Đông Trùng Chưng 70ml</li>
-                        <li>Phù hợp: Chăm sóc sức khỏe chủ động</li>
-                        <li>Giảm 8% so với mua lẻ</li>
+                    <ul class="feature-list">
+                        <li>6 lọ Nước Yến + 3 hộp Đông Trùng</li>
+                        <li>Chăm sóc sức khỏe chủ động</li>
+                        <li>Tiết kiệm 8%</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Chăm Sóc Chủ Động</a>
+                    <a href="https://shopee.vn/yenviet" target="_blank" class="btn btn-gold card-btn">Mua Ngay</a>
                 </div>
+            </div>
 
-                <!-- Combo 5 -->
-                <div class="combo-card">
-                    <div class="combo-tag" style="background: #D4AF37;">VIP</div>
-                    <h3>VIP Gift Set</h3>
-                    <p class="combo-desc">Đẳng cấp quà tặng, hội tụ trọn vẹn sự tinh túy nhất của Yến Việt.</p>
-                    <div class="combo-price">
+            <!-- Combo 5 -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="badge badge-gold" style="background:#000; color:#FFD700; border:1px solid #FFD700;">Luxury</span>
+                    <!-- Thay link src bằng URL ảnh thật -->
+                    <img src="https://placehold.co/600x400/1e293b/facc15?text=Ảnh+Hộp+Gỗ+24+Lọ" alt="VIP Gift Set" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">VIP World Cup Set</h3>
+                    <p class="card-desc">Sản phẩm Thượng Hạng nhất. Hộp gỗ sang trọng, gói trọn tinh túy Yến Việt.</p>
+                    <div class="price-box">
                         <span class="price-new">1.200.000₫</span>
                         <span class="price-old">1.360.000₫</span>
                     </div>
-                    <ul class="combo-features">
-                        <li>24 lọ yến (12 Sen + 12 Không Đường)</li>
-                        <li>Hộp quà gỗ sang trọng + Túi vải cao cấp</li>
-                        <li>Phù hợp: Khách hàng VIP, Quà tặng lớn</li>
-                        <li>Giảm 12% so với mua lẻ</li>
+                    <ul class="feature-list">
+                        <li>24 lọ Yến (12 Sen + 12 Không Đường)</li>
+                        <li>Hộp gỗ cao cấp, chạm khắc tinh xảo</li>
+                        <li>Tiết kiệm 12%</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Đặt Quà VIP Ngay</a>
+                    <a href="https://shopee.vn/yenviet" target="_blank" class="btn btn-gold card-btn">Mua Ngay</a>
                 </div>
+            </div>
 
-                 <!-- Combo 6 -->
-                 <div class="combo-card">
-                    <h3>Combo Xem Đá Đủ Vị</h3>
-                    <p class="combo-desc">Trải nghiệm đa dạng hương vị, thưởng thức không nhàm chán.</p>
-                    <div class="combo-price">
+            <!-- Combo 6 -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <!-- Thay link src bằng URL ảnh thật -->
+                    <img src="https://placehold.co/600x400/1e293b/facc15?text=Ảnh+Mix+6+Vị" alt="Xem Đá Đủ Vị" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Xem Đá Đủ Vị</h3>
+                    <p class="card-desc">Gói trải nghiệm hương vị phong phú, để mỗi trận đấu là một sự thưởng thức mới mẻ.</p>
+                    <div class="price-box">
                         <span class="price-new">720.000₫</span>
                         <span class="price-old">770.400₫</span>
                     </div>
-                    <ul class="combo-features">
-                        <li>18 lọ mix 6 vị độc đáo</li>
-                        <li>Sen, Không Đường, Đông Trùng, Sâm...</li>
-                        <li>Phù hợp: Fan thích sự đa dạng</li>
-                        <li>Giảm 6% so với mua lẻ</li>
+                    <ul class="feature-list">
+                        <li>18 lọ mix 6 vị Yến Việt độc đáo</li>
+                        <li>Thích hợp cho cả hội bạn bè</li>
+                        <li>Tiết kiệm 6%</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Đủ Vị - Đủ Khỏe</a>
+                    <a href="https://shopee.vn/yenviet" target="_blank" class="btn btn-gold card-btn">Mua Ngay</a>
                 </div>
+            </div>
 
-                <!-- Combo 7: Mới -->
-                <div class="combo-card">
-                    <div class="combo-tag" style="background: #27ae60;">Tiêu Hóa Tốt</div>
-                    <h3>Combo Bụng Khỏe Thức Khuya</h3>
-                    <p class="combo-desc">Sự kết hợp hoàn hảo giữa Nước Yến Sâm Tỉnh Táo và Cháo Yến YenViet Dễ Tiêu Hóa.</p>
-                    <div class="combo-price">
+            <!-- Combo 7: Tiêu Hóa -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="badge badge-green">Tốt Tiêu Hóa</span>
+                    <!-- Thay link src bằng URL ảnh thật -->
+                    <img src="https://placehold.co/600x400/1e293b/facc15?text=Ảnh+Nước+Yến+Sâm+Cháo" alt="Bụng Khỏe Thức Khuya" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Bụng Khỏe Thức Khuya</h3>
+                    <p class="card-desc">Giải quyết nỗi lo đầy bụng ăn đêm. Cháo yến ấm dạ dày, nước sâm giúp tỉnh táo.</p>
+                    <div class="price-box">
                         <span class="price-new">450.000₫</span>
                         <span class="price-old">489.000₫</span>
                     </div>
-                    <ul class="combo-features">
-                        <li>6 lọ Nước Yến Sâm cao cấp</li>
-                        <li>3 hộp Cháo Yến YenViet</li>
-                        <li>Phù hợp: Đói bụng ban đêm, cần tỉnh táo</li>
-                        <li>Giảm 8% so với mua lẻ</li>
+                    <ul class="feature-list">
+                        <li>6 lọ Nước Yến Sâm + 3 hộp Cháo Yến</li>
+                        <li>Ăn đêm ngon miệng, siêu dễ tiêu</li>
+                        <li>Tiết kiệm 8%</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Bụng Khỏe - Đêm Vui</a>
+                    <a href="https://shopee.vn/yenviet" target="_blank" class="btn btn-gold card-btn">Mua Ngay</a>
                 </div>
+            </div>
 
-                <!-- Combo 8: Mới -->
-                <div class="combo-card">
-                    <div class="combo-tag" style="background: #8e44ad;">Phục Hồi</div>
-                    <h3>Combo Hồi Phục Thần Tốc</h3>
-                    <p class="combo-desc">Phục hồi hệ vi sinh đường ruột và nạp năng lượng cực mạnh cho ngày mới.</p>
-                    <div class="combo-price">
+            <!-- Combo 8: Phục hồi -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="badge badge-purple">Phục Hồi Nhanh</span>
+                    <!-- Thay link src bằng URL ảnh thật -->
+                    <img src="https://placehold.co/600x400/1e293b/facc15?text=Ảnh+Đông+Trùng" alt="Hồi Phục Thần Tốc" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Hồi Phục Thần Tốc</h3>
+                    <p class="card-desc">Trở lại văn phòng làm việc ngày hôm sau với 100% năng lượng nhờ hệ tiêu hóa khỏe mạnh.</p>
+                    <div class="price-box">
                         <span class="price-new">680.000₫</span>
                         <span class="price-old">755.000₫</span>
                     </div>
-                    <ul class="combo-features">
-                        <li>6 lọ Nước Yến Đông Trùng Hạ Thảo</li>
-                        <li>6 hộp Cháo Yến Sâm Đông Trùng</li>
-                        <li>Phù hợp: Dân văn phòng, người lớn tuổi</li>
-                        <li>Giảm 10% so với mua lẻ</li>
+                    <ul class="feature-list">
+                        <li>6 lọ Yến Đông Trùng + 6 hộp Cháo Sâm ĐT</li>
+                        <li>Cân bằng hệ vi sinh đường ruột</li>
+                        <li>Tiết kiệm 10%</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Hồi Phục Thần Tốc</a>
+                    <a href="https://shopee.vn/yenviet" target="_blank" class="btn btn-gold card-btn">Mua Ngay</a>
                 </div>
+            </div>
 
-                <!-- Combo 9: Cà phê muối -->
-                <div class="combo-card">
-                    <div class="combo-tag" style="background: #e67e22;">Thức Trọn</div>
-                    <h3>Combo Thức Trọn Mùa Bóng</h3>
-                    <p class="combo-desc">Sự kết hợp độc đáo: Cà phê muối tỉnh táo tức thì, yến sào không đường bồi bổ sức khỏe.</p>
-                    <div class="combo-price">
+            <!-- Combo 9: Cà phê muối -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="badge badge-red" style="background:#E67E22;">Hot Trend</span>
+                    <!-- Thay link src bằng URL ảnh thật -->
+                    <img src="https://placehold.co/600x400/1e293b/facc15?text=Ảnh+Cà+Phê+Muối+Và+Yến" alt="Thức Trọn Mùa Bóng" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Thức Trọn Mùa Bóng</h3>
+                    <p class="card-desc">Sự kết hợp táo bạo: Cà phê muối "bật công tắc" tỉnh tức thì, Yến không đường bồi bổ từ bên trong.</p>
+                    <div class="price-box">
                         <span class="price-new">299.000₫</span>
                         <span class="price-old">330.000₫</span>
                     </div>
-                    <ul class="combo-features">
-                        <li>2 hộp Cà Phê Muối Yến Việt (Mix vị)</li>
-                        <li>6 lọ Nước Yến Không Đường</li>
-                        <li>Phù hợp: "Cú đêm" cần năng lượng tức thì</li>
-                        <li>Giảm 9% so với mua lẻ</li>
+                    <ul class="feature-list">
+                        <li>2 hộp Cà Phê Muối YV + 6 Yến K.Đường</li>
+                        <li>Dành cho "cú đêm" cần tỉnh tức thì</li>
+                        <li>Tiết kiệm 9%</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Tỉnh Táo Tức Thì</a>
+                    <a href="https://shopee.vn/yenviet" target="_blank" class="btn btn-gold card-btn">Mua Ngay</a>
                 </div>
-
             </div>
+
         </div>
-    </section>
+    </div>
 
     <footer>
         <div class="container">
             <div class="footer-logo">YẾN VIỆT</div>
-            <p style="color: var(--text-muted);">Sản phẩm chất lượng từ Công ty Cổ phần Yến Việt.</p>
-            <p class="legal">*Chiến dịch ưu đãi diễn ra từ 12/06/2026 đến 20/07/2026. Chương trình có thể kết thúc sớm nếu hết số lượng ưu đãi. Không áp dụng đồng thời cùng các chương trình khuyến mãi khác.</p>
+            <p style="color: var(--text-dim); margin-bottom: 20px;">Tinh túy thiên nhiên - Sức khỏe vô biên</p>
+            <p style="font-size: 0.85rem; color: #666;">*Chương trình ưu đãi có hạn. Xin vui lòng liên hệ trực tiếp trên gian hàng Shopee của chúng tôi để biết thêm chi tiết về tình trạng tồn kho.</p>
         </div>
     </footer>
 
+    <!-- Script Đếm ngược Flash Sale -->
+    <script>
+        function updateTimer() {
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+            
+            let h = parseInt(hoursEl.innerText);
+            let m = parseInt(minutesEl.innerText);
+            let s = parseInt(secondsEl.innerText);
+
+            if (s > 0) {
+                s--;
+            } else {
+                s = 59;
+                if (m > 0) {
+                    m--;
+                } else {
+                    m = 59;
+                    if (h > 0) {
+                        h--;
+                    }
+                }
+            }
+
+            hoursEl.innerText = h.toString().padStart(2, '0');
+            minutesEl.innerText = m.toString().padStart(2, '0');
+            secondsEl.innerText = s.toString().padStart(2, '0');
+        }
+        setInterval(updateTimer, 1000);
+    </script>
 </body>
 </html>
