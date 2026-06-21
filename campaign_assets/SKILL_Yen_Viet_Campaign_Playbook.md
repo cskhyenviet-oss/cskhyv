@@ -10,7 +10,7 @@
 ```
 campaign_assets/
 ├── SKILL_Yen_Viet_Campaign_Playbook.md   ← File này (Tài liệu tổng hợp)
-├── landing_page.html                      ← Trang bán hàng (9 Combo)
+├── index.html                            ← Trang bán hàng (9 Combo)
 ├── marketing_content.md                   ← 7 Ads Copy + 5 Video Scripts
 └── b2b_email.html                         ← Email chào hàng Doanh nghiệp B2B
 ```
@@ -212,7 +212,7 @@ ROAS      = Doanh thu / Ngân sách Marketing
 
 | File                        | Mô tả                                      | Đường dẫn nhanh               |
 |:----------------------------|:-------------------------------------------|:------------------------------|
-| `landing_page.html`         | Trang bán hàng 9 Combo, Flash Sale banner  | Mở bằng trình duyệt           |
+| `index.html`                | Trang bán hàng 9 Combo, Flash Sale banner  | Mở bằng trình duyệt           |
 | `marketing_content.md`      | 7 Ad Copies + 5 Video Scripts              | Dùng để đăng Ads              |
 | `b2b_email.html`            | Email chào hàng VIP Set cho Doanh nghiệp   | Gửi qua email client          |
 | `SKILL_...Playbook.md`      | File này – Toàn bộ phương pháp              | Tái dùng cho chiến dịch sau   |
