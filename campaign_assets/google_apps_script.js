@@ -26,7 +26,8 @@ function doPost(e) {
     
     // Lấy dữ liệu từ request (từ form gửi lên qua FormData)
     const fullname = e.parameter.fullname || '';
-    const phone = e.parameter.phone || '';
+    // Thêm dấu nháy đơn vào trước SĐT để Google Sheet không tự xóa số 0
+    const phone = e.parameter.phone ? "'" + e.parameter.phone : '';
     const email = e.parameter.email || '';
     const product = e.parameter.product || '';
     const contactMethod = e.parameter.contact_method || '';
