@@ -36,18 +36,18 @@ function doPost(e) {
     const product = e.parameter.product || '';
     const contactMethod = e.parameter.contact_method || '';
 
-    // Lấy số tiền tương ứng với sản phẩm
-    let price = "0đ";
+    // Lấy số tiền tương ứng với sản phẩm (định dạng số để Google Sheet tính toán được)
+    let price = 0;
     switch (product) {
-      case "Combo Xem Bóng Khỏe": price = "480.000đ"; break;
-      case "Combo Gia Đình Mùa Bóng": price = "350.000đ"; break;
-      case "Quà Tặng Đối Tác": price = "650.000đ"; break;
-      case "Nạp Năng Lượng": price = "550.000đ"; break;
-      case "VIP World Cup Set": price = "1.200.000đ"; break;
-      case "Xem Đá Đủ Vị": price = "720.000đ"; break;
-      case "Bụng Khỏe Thức Khuya": price = "450.000đ"; break;
-      case "Hồi Phục Thần Tốc": price = "680.000đ"; break;
-      case "Thức Trọn Mùa Bóng": price = "299.000đ"; break;
+      case "Combo Xem Bóng Khỏe": price = 480000; break;
+      case "Combo Gia Đình Mùa Bóng": price = 350000; break;
+      case "Quà Tặng Đối Tác": price = 650000; break;
+      case "Nạp Năng Lượng": price = 550000; break;
+      case "VIP World Cup Set": price = 1200000; break;
+      case "Xem Đá Đủ Vị": price = 720000; break;
+      case "Bụng Khỏe Thức Khuya": price = 450000; break;
+      case "Hồi Phục Thần Tốc": price = 680000; break;
+      case "Thức Trọn Mùa Bóng": price = 299000; break;
       case "Khác": price = "Liên hệ tư vấn"; break;
       default: price = "";
     }
