@@ -944,11 +944,13 @@
                 submitBtn.disabled = true;
 
                 // THAY ĐƯỜNG DẪN WEB APP URL CỦA BẠN VÀO ĐÂY
-                const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbwiRS6Wq-xpN641AVRFlFrZJKgZ2S_BvElmIVRd9IW9bSAbF01aWFrhGSe830G6orw3Sw/exec';
                 
+                const data = new URLSearchParams(new FormData(contactForm));
                 fetch(scriptURL, {
                     method: 'POST',
-                    body: new FormData(contactForm)
+                    mode: 'no-cors',
+                    body: data
                 })
                 .then(response => {
                     alert('Cảm ơn bạn! Thông tin đã được gửi thành công.');
