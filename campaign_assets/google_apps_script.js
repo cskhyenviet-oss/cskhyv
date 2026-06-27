@@ -15,10 +15,14 @@ function doPost(e) {
         'SĐT', 
         'Email', 
         'Sản phẩm bạn đang quan tâm', 
-        'Hình thức liên hệ'
+        'Hình thức liên hệ',
+        'Mã SO',
+        'Mã theo dõi giao hàng',
+        'Số tiền chuyển khoản',
+        'Số tiền COD'
       ]);
       // In đậm dòng tiêu đề
-      ws.getRange(1, 1, 1, 6).setFontWeight('bold');
+      ws.getRange(1, 1, 1, 10).setFontWeight('bold');
     }
 
     // Thời gian hiện tại
@@ -32,14 +36,27 @@ function doPost(e) {
     const product = e.parameter.product || '';
     const contactMethod = e.parameter.contact_method || '';
 
-    // Thêm dòng mới vào Google Sheet
+    // Tạo mã SO ngẫu nhiên (SO + 8 số)
+    const random8Digits = Math.floor(10000000 + Math.random() * 90000000);
+    const soCode = "SO" + random8Digits;
+    
+    // Gán số tiền
+    const transferAmount = "";
+    const codAmount = "19.000đ";
+    const trackingCode = "";
+
+    // Thêm dòng mới vào Google Sheet (10 cột)
     ws.appendRow([
       timestamp,
       fullname,
       phone,
       email,
       product,
-      contactMethod
+      contactMethod,
+      soCode,
+      trackingCode,
+      transferAmount,
+      codAmount
     ]);
 
     // Trả về JSON thành công để frontend nhận biết
