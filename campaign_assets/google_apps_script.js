@@ -5,16 +5,16 @@ function doPost(e) {
   try {
     const ss = SpreadsheetApp.openById(SHEET_ID);
     let ws = ss.getSheetByName(SHEET_NAME);
-    
+
     // Nếu trang tính chưa tồn tại thì tạo mới và thêm tiêu đề
     if (!ws) {
       ws = ss.insertSheet(SHEET_NAME);
       ws.appendRow([
-        'Thời gian', 
-        'Tên', 
-        'SĐT', 
-        'Email', 
-        'Sản phẩm bạn đang quan tâm', 
+        'Thời gian',
+        'Tên',
+        'SĐT',
+        'Email',
+        'Sản phẩm bạn đang quan tâm',
         'Hình thức liên hệ',
         'Mã SO',
         'Mã theo dõi giao hàng',
@@ -27,7 +27,7 @@ function doPost(e) {
 
     // Thời gian hiện tại
     const timestamp = new Date();
-    
+
     // Lấy dữ liệu từ request (từ form gửi lên qua FormData)
     const fullname = e.parameter.fullname || '';
     // Thêm dấu nháy đơn vào trước SĐT để Google Sheet không tự xóa số 0
@@ -55,7 +55,7 @@ function doPost(e) {
     // Tạo mã SO ngẫu nhiên (SO + 8 số)
     const random8Digits = Math.floor(10000000 + Math.random() * 90000000);
     const soCode = "SO" + random8Digits;
-    
+
     // Gán số tiền
     const transferAmount = "";
     const codAmount = price;
@@ -79,7 +79,7 @@ function doPost(e) {
     return ContentService
       .createTextOutput(JSON.stringify({ 'result': 'success', 'row': ws.getLastRow() }))
       .setMimeType(ContentService.MimeType.JSON);
-      
+
   } catch (error) {
     // Trả về JSON chứa lỗi nếu có
     return ContentService
