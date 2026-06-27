@@ -805,7 +805,8 @@
         <div class="contact-section" id="contact">
             <h2 class="section-title">Nhận Tư Vấn <span class="text-gradient-gold">Ngay Hôm Nay</span></h2>
             <div class="contact-form-wrapper">
-                <form id="contactForm" class="contact-form" name="contact-form">
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(window.submitted){ onFormSubmitted(); }"></iframe>
+                <form id="contactForm" class="contact-form" name="contact-form" target="hidden_iframe" action="https://script.google.com/macros/s/AKfycbwiRS6Wq-xpN641AVRFlFrZJKgZ2S_BvElmIVRd9IW9bSAbF01aWFrhGSe830G6orw3Sw/exec" method="POST" onsubmit="window.submitted=true; onFormSubmitting();">
                     <div class="form-group">
                         <label for="fullname">Họ và Tên *</label>
                         <input type="text" id="fullname" name="fullname" required placeholder="Nhập họ và tên của bạn">
@@ -932,39 +933,27 @@
             });
         }
 
-        // Google Sheets Sync Logic
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const submitBtn = contactForm.querySelector('button[type="submit"]');
-                const originalBtnText = submitBtn.innerText;
+        // Google Sheets Sync Logic (Using hidden iframe for 100% reliability)
+        let originalBtnText = '';
+        
+        function onFormSubmitting() {
+            const submitBtn = document.querySelector('#contactForm button[type="submit"]');
+            if (submitBtn) {
+                originalBtnText = submitBtn.innerText;
                 submitBtn.innerText = 'Đang gửi...';
                 submitBtn.disabled = true;
+            }
+        }
 
-                // THAY ĐƯỜNG DẪN WEB APP URL CỦA BẠN VÀO ĐÂY
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbwiRS6Wq-xpN641AVRFlFrZJKgZ2S_BvElmIVRd9IW9bSAbF01aWFrhGSe830G6orw3Sw/exec';
-                
-                const data = new URLSearchParams(new FormData(contactForm));
-                fetch(scriptURL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    body: data
-                })
-                .then(response => {
-                    alert('Cảm ơn bạn! Thông tin đã được gửi thành công.');
-                    contactForm.reset();
-                })
-                .catch(error => {
-                    console.error('Error!', error.message);
-                    alert('Xin lỗi, có lỗi xảy ra. Vui lòng thử lại sau.');
-                })
-                .finally(() => {
-                    submitBtn.innerText = originalBtnText;
-                    submitBtn.disabled = false;
-                });
-            });
+        function onFormSubmitted() {
+            const submitBtn = document.querySelector('#contactForm button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            }
+            alert('Cảm ơn bạn! Thông tin đã được gửi thành công.');
+            document.getElementById('contactForm').reset();
+            window.submitted = false;
         }
     </script>
 </body>
